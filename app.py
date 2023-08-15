@@ -7,7 +7,7 @@ JOBS = [
         'id': 1,
         'title': 'Speedster',
         'location': 'Tokyo, Japan',
-        'salary': '¥ 90,00,000'
+        'salary': '¥ 120,00,000'
     },
     {
         'id': 2,
@@ -25,7 +25,7 @@ JOBS = [
         'id': 4,
         'title': 'Super Human',
         'location': 'Bengaluru, India',
-        'salary': 'Rs. 35,00,000'
+        'salary': 'Rs. 55,00,000'
     },
 ]
 
