@@ -4,61 +4,45 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Justice League Careers</title>
     <style>
-        h1 {
-            font-size: 40px;
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            font-weight: bold;
-            color: rgb(50, 50, 50);
-            text-align: center;
-        }
-
         #banner {
-            width: 100%;
             height: 450px;
             object-fit: cover;
-        }
-
-        h2 {
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            font-size: 32px;
-            color: rgb(100, 100, 100);
-            text-align: center;
-            font-weight: normal;
-        }
-
-        .bodytext {
-            font-family: "Comic Sans MS", "Comic Sans", cursive;
-            color: rgb(80, 80, 80);
-        }
-
-        #container {
-            max-width: 720px;
-            margin: 0 auto 0 auto;
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
-    <div id="container">
-        <h1>Justice League</h1>
-        <img id="banner" src="/static/b2.jpg" alt="Justice League" />
-        <h2>About JL</h2>
-        <p class = "bodytext">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-            est laborum.
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
+        <img class="img-fluid" id="banner" src="/static/b2.jpg" alt="Justice League" />
+        <h2 class="text-center mt-2 mb-4">About JL Careers</h2>
+        <p class="lead">
+            Welcome to Justice League Careers, the premier platform for extraordinary individuals from all corners of
+            the Earth to apply their superhuman abilities for the greater good. At Justice League, we believe that
+            harnessing the power of unique talents and strengths can create a world where justice prevails, and hope
+            shines brighter than ever before.
         </p>
-        <h2>Job Openings</h2>
-        <p>TODO- Show the Jobs here</p>
-        <div style="text-align: center;">
-            <button>Contact Us</button>
-            <p>Copyright 2023, Justice League</p>
+        <h2 class="text-center mt-2 mb-4">Our Mission</h2>
+        <p class="lead">
+            Justice League is more than just a team of superheroes – we are a diverse, united force committed to
+            safeguarding our world from threats that defy imagination. Our mission is to bring together individuals with
+            extraordinary powers, skills, and determination to collaboratively uphold justice, protect the innocent, and
+            inspire a future defined by unity and harmony.
+        </p>
+        <h2 class="text-center mt-2 mb-4">Job Openings</h2>
+        <p>
+            {% for job in jobs %}
+            {% include 'jobItem.html' %}
+            {% endfor %}
+        </p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-lg">Contact Us</button>
+            <p class="mt-4">Copyright 2023, Justice League</p>
         </div>
     </div>
 </body>
