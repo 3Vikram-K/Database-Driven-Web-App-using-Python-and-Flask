@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>Justice League Careers</title>
+    <title>3Vikram</title>
     <style>
         #banner {
             height: 450px;
@@ -18,34 +18,52 @@
 
 <body>
     {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="/static/banner.jpg" alt="VYKRAM" />
+    <div style="background-color: rgb(255,255,255);padding-top: 50px;padding-bottom: 35px;">
     <div class="container">
-        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-        <img class="img-fluid" id="banner" src="/static/b2.jpg" alt="Justice League" />
-        <h2 class="text-center mt-2 mb-4">About JL Careers</h2>
-        <p class="lead">
-            Welcome to Justice League Careers, the premier platform for extraordinary individuals from all corners of
-            the Earth to apply their superhuman abilities for the greater good. At Justice League, we believe that
-            harnessing the power of unique talents and strengths can create a world where justice prevails, and hope
-            shines brighter than ever before.
-        </p>
+        <h1 class="text-center" style="margin-bottom: 50px;">About {{company_name}}</h1>
+        <div class="row" style="margin-bottom: 100px;">
+            <div class="col-md-6">
+                <p class="lead">
+                    Welcome to Vykram, a pioneering software company driven by cutting-edge technology and a commitment
+                    to transforming ideas into reality. With a culture of creativity and collaboration, we craft
+                    software solutions that redefine industries and enhance user experiences. Specializing in intuitive,
+                    scalable, and secure applications, we engineer solutions that empower and inspire, setting new
+                    benchmarks for technological advancement. Join us in reshaping the digital landscape, one innovation
+                    at a time.
+                </p>
+            </div>
+            <div class="d-none d-md-block col-md-6">
+                <img src="/static/people.jpeg" alt="people" style="height:320px;border-radius: 4px;">
+            </div>
+        </div>
         <h2 class="text-center mt-2 mb-4">Our Mission</h2>
         <p class="lead">
-            Justice League is more than just a team of superheroes – we are a diverse, united force committed to
-            safeguarding our world from threats that defy imagination. Our mission is to bring together individuals with
-            extraordinary powers, skills, and determination to collaboratively uphold justice, protect the innocent, and
-            inspire a future defined by unity and harmony.
+            At Vykram, our mission is to revolutionize the digital landscape through innovative software solutions. We
+            are dedicated to pushing the boundaries of technology, fostering creativity, and driving impactful change.
+            By crafting intuitive, secure, and scalable applications, we aim to empower businesses and individuals,
+            setting new standards for excellence in the digital realm. With a relentless pursuit of innovation, we
+            strive to reshape industries and enhance user experiences, ultimately shaping a more connected and
+            technologically advanced world.
         </p>
-        <h2 class="text-center mt-2 mb-4">Job Openings</h2>
+        </div>
+    </div>
+    <div style="background-color: rgb(230,230,230);padding-top: 50px; padding-bottom: 30px;">
+        <div class="container">
+        <h2 class="text-center" style="margin-top:30px;">Job Openings</h2>
         <p>
             {% for job in jobs %}
             {% include 'jobItem.html' %}
             {% endfor %}
         </p>
-        <div class="text-center">
-            <button class="btn btn-primary btn-lg">Contact Us</button>
-            <p class="mt-4">Copyright 2023, Justice League</p>
         </div>
-    </div>
+        </div>
+        <div class="text-center" style="margin-top: 30px;">
+            <button class="btn btn-primary btn-lg">Contact Us</button>
+            {% include 'footer.html' %}
+        </div>
+    
+    
 </body>
 
 </html>
