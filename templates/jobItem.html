@@ -10,12 +10,13 @@
 
         {% if 'salary' in job %}
         <div>
-            <b>Salary:</b>{{job['salary']}}
+            <b>Salary:</b>{{job['currency']}} {{job['salary']}}
         </div>
         {% endif %}
     </div>
     <div class="col-1">
+        <a href="/job/{{job['id']}}">
         <button type="button" class="btn btn-dark" style="margin-top: 33%;">
-            Apply</button>
+            Apply</button></a>
     </div>
 </div>

@@ -1,0 +1,36 @@
+<div class="container" style="margin-top:20px;">
+    <h4 style="margin-bottom: 15px;">Application Form</h4>
+    <form action="/job/{{job['id']}}/apply" method="post">
+        <div class="mb-4 form-group">
+            <label>Full Name</label><br>
+            <input type="text" required name="full_name" placeholder="Bruce Wayne" size="40">
+        </div>
+
+        <div class="mb-4 form-group">
+            <label>Email</label><br>
+            <input type="email" required name="email" placeholder="bruce@wayne.com" size="50">
+        </div>
+
+        <div class="mb-4 form-group">
+            <label>LinkedIn URL</label><br>
+            <input type="url" name="linkedin_url" placeholder="https://linked.com/in/brucewayne" size="62">
+        </div>
+
+        <div class="mb-4 form-group">
+            <label>Education</label><br>
+            <textarea rows="7" required cols="65" name="education"></textarea>
+        </div>
+
+        <div class="mb-4 form-group">
+            <label>Work Experience</label><br>
+            <textarea rows="7" required cols="65" name="work_experience"></textarea>
+        </div>
+
+        <div class="mb-4 form-group">
+            <label>Resume URL</label><br>
+            <input type="url" name="resume_url" placeholder="Link to your Resume" size="62">
+        </div>
+
+        <input type="submit" class="btn btn-dark">
+    </form>
+</div>

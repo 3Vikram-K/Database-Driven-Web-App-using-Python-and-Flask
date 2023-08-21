@@ -1,41 +1,42 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db
+
 
 app = Flask(__name__)
 
-JOBS = [
-    {
-        'id': 1,
-        'title': 'Data Scientist',
-        'location': 'Tokyo, Japan',
-        'salary': '¥ 140,00,000'
-    },
-    {
-        'id': 2,
-        'title': 'Web Developer',
-        'location': 'New York, USA',
-        'salary': '$ 100,000'
-    },
-    {
-        'id': 3,
-        'title': 'DevOps Engineer',
-        'location': 'Bengaluru, India',
-        'salary': '$ 30,00,000'
-    },
-    {
-        'id': 4,
-        'title': 'Senior Software Engineer',
-        'location': 'Hyderbad, India',
-        'salary': 'Rs. 55,00,000'
-    },
-]
-
 @app.route("/")
-def hello_world():
-    return render_template('home.html', jobs = JOBS, company_name = 'VYKRAM')
+def main_page():
+    jobs = load_jobs_from_db()
+    return render_template('home.html', jobs = jobs)
 
 @app.route("/api/jobs")
 def list_jobs():
-    return jsonify(JOBS)
+    jobs = load_jobs_from_db()
+    return jsonify(jobs)
+
+@app.route("/api/job/<id>")
+def show_job_json(id):
+  job = load_job_from_db(id)
+  return jsonify(job)
+
+@app.route("/job/<id>")
+def show_job(id):
+    job = load_job_from_db(id)
+
+    if not job:
+        return "Not Found", 404
+    
+    return render_template('jobPage.html', job = job)
+
+@app.route("/job/<id>/apply", methods=['post'])
+def apply_to_job(id):
+    data = request.form
+    job = load_job_from_db(id)
+
+    add_application_to_db(id, data)
+
+    return render_template('applicationSubmitted.html', application=data, job=job)
+    
 
 if __name__ == "__main__":
     app.run('0.0.0.0',debug=True)
